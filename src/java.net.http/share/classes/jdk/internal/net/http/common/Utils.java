@@ -334,6 +334,9 @@ public final class Utils {
         if (t instanceof SSLHandshakeException)
             return t;  // no need to decorate
 
+        if (t instanceof ConnectException)
+            return t;  // no need to decorate
+
         String msg = messageSupplier.get();
         if (msg == null)
             return t;
